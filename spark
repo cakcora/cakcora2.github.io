@@ -1,0 +1,9 @@
+<html>
+
+<body>
+<ul>
+<li> Using Spark with Intellij IDE if you encounter the error: Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
+Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into VM options.</li>
+</ul>
+</body>
+</html>
