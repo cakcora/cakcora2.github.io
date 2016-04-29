@@ -7,7 +7,8 @@ Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into 
 <li>Using Spark as a novice, when you get Failed to connect to master myhost:7077. In the code, val conf = new SparkConf().setAppName("myapp").setMaster("local[2]"). Here,  local[2] means two threads - which represents “minimal” parallelism (see http://spark.apache.org/docs/latest/configuration.html)</li>
 <li>Turn off Spark logs in Intellij IDE: create a log4j.xml file and put it under src/main/resources/. <a href="log4j.txt" target=_blank>Click here</a> for the content of the xml file. After this, Intellij will compain about log4j namespaces. Add a new <a href="http://mvnrepository.com/artifact/log4j">Log4J maven dependency</a> to your pom.xml file</li>
 <li>If you get java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries. Download winutils.exe from web and cput it somewhere like C:\winutils\bin . Go to your code and add the line System.setProperty("hadoop.home.dir", "c:/winutil/") to the beginning of your code. NOTE: Spark will find the bin folder itself, you should not write it in the code. </li>
-<p></p>
+<li>If you get 'This version of %1 is not compatible with the version of Windows you're running.', you have the wrong version of winutils.exe. Go to Computer/System properties and check the operating system. If it is 32bit, search for the 32 bit version of winutils.exe. You can find it <a href="http://teknosrc.com/wp-content/uploads/2015/06/winutils.exe" target =_blank>here</a>. Read more <a href="http://teknosrc.com/spark-error-java-io-ioexception-could-not-locate-executable-null-bin-winutils-exe-hadoop-binaries/" target=_blank>here</a>
+	</li>
 </ul>
 </body>
 </html>
