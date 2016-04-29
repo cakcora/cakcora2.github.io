@@ -1,6 +1,9 @@
 <html>
 
 <body>
+	<h1>Spark pitfalls and ways to overcome them</h1>
+	<h2>System Level</h2>
+	
 <ul>
 <li> Using Spark with Intellij IDE if you encounter the error: Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
 Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into VM options.</li>
@@ -10,5 +13,7 @@ Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into 
 <li>If you get 'This version of %1 is not compatible with the version of Windows you're running.', you have the wrong version of winutils.exe. Go to Computer/System properties and check the operating system. If it is 32bit, search for the 32 bit version of winutils.exe. You can find it <a href="http://teknosrc.com/wp-content/uploads/2015/06/winutils.exe" target =_blank>here</a>. Read more <a href="http://teknosrc.com/spark-error-java-io-ioexception-could-not-locate-executable-null-bin-winutils-exe-hadoop-binaries/" target=_blank>here</a>
 	</li>
 </ul>
+
+
 </body>
 </html>
