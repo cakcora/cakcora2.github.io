@@ -15,6 +15,7 @@ Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into 
 <li>If you get 'This version of %1 is not compatible with the version of Windows you're running.', you have the wrong version of winutils.exe. Go to Computer/System properties and check the operating system. If it is 32bit, search for the 32 bit version of winutils.exe. You can find it <a href="http://teknosrc.com/wp-content/uploads/2015/06/winutils.exe" target =_blank>here</a>. Read more <a href="http://teknosrc.com/spark-error-java-io-ioexception-could-not-locate-executable-null-bin-winutils-exe-hadoop-binaries/" target=_blank>here</a>. April 2016 Edit: Abandoned hope on solving this problem, started using fatjars</li>
 <li>When you submit spark jobs from an IDE, the jars that you distribute to the master with setJars() can have a big size (134 Mb in my case). In order to avoid this, you can use <code>&lt;scope&gt;provided&lt;scope&gt;</code> in maven, so that the specific dependency jar will not be packed into the uberjar you are creating. When you do this however, you get the ClassNotFoundException: org.apache.spark.SparkConf error. </li>
 <li>If you get java.lang.ClassNotFoundException when trying to submit uberJars/fatJars:  make sure that you have all of the maven-shade-plugin, scala-maven-plugin, and maven-compiler-plugin in your pom.xml. </li>
+<li>Initial job has not accepted any resources: you have asked for system resources, but the system does not have that much. Lower the number of executer cores you ask etc. </li>
 </ul>
 
 <h2>Code Level</h2>
