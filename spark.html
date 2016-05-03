@@ -15,6 +15,19 @@ Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into 
 <li>If you get 'This version of %1 is not compatible with the version of Windows you're running.', you have the wrong version of winutils.exe. Go to Computer/System properties and check the operating system. If it is 32bit, search for the 32 bit version of winutils.exe. You can find it <a href="http://teknosrc.com/wp-content/uploads/2015/06/winutils.exe" target =_blank>here</a>. Read more <a href="http://teknosrc.com/spark-error-java-io-ioexception-could-not-locate-executable-null-bin-winutils-exe-hadoop-binaries/" target=_blank>here</a>. April 2016 Edit: Abandoned hope on solving this problem, started using fatjars</li>
 </ul>
 
+	<h2>Code Level</h2>
+	<ul>
+		<li>Reading from hdfs in spark code: First upload your file to hdfs. 
+		<code>hadoop fs -mkdir /yourDirectory</code>
+		<code>hadoop fs -put localDir/your_file.txt /yourDirectory</code>
+		Then go to your server where you have the spark shell, and use <code>hdfs getconf -confKey fs.default.name</code>. You will see the port hdfs uses, such as hdfs://insight.master:54310. In your code, use  
+			<code>
+				val ipAdress = 	10.***.***.***
+				val file = sc.textFile("hdfs://"+ipAdress+":54310/your_directory/your_file.txt").count
+				
+			</code>
+		 </li>
+	</ul>
 
 </body>
 </html>
