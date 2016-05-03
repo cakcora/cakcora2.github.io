@@ -18,14 +18,13 @@ Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into 
 	<h2>Code Level</h2>
 	<ul>
 		<li>Reading from hdfs in spark code: First upload your file to hdfs. 
-		<code>hadoop fs -mkdir /yourDirectory</code>
-		<code>hadoop fs -put localDir/your_file.txt /yourDirectory</code>
+		<p><code>hadoop fs -mkdir /yourDirectory</code></p>
+		<p></p><code>hadoop fs -put localDir/your_file.txt /yourDirectory</code></p>
 		Then go to your server where you have the spark shell, and use <code>hdfs getconf -confKey fs.default.name</code>. You will see the port hdfs uses, such as hdfs://insight.master:54310. In your code, use  
-			<code>
-				val ipAdress = 	10.***.***.***
-				val file = sc.textFile("hdfs://"+ipAdress+":54310/your_directory/your_file.txt").count
+			<p><code>val ipAdress = 	10.***.***.***	</code></p>
+			<p><code>val file = sc.textFile("hdfs://"+ipAdress+":54310/your_directory/your_file.txt").count	</code></p>
 				
-			</code>
+		
 		 </li>
 	</ul>
 
