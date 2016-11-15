@@ -1,7 +1,7 @@
 <html>
 
 <body>
-	<h1>Spark pitfalls and how to slay dragons</h1>
+	<h1>Spark pitfalls</h1>
 
 Most of the pitfalls I had were system level minutia.  
 	<h2>System Level</h2>
@@ -30,6 +30,12 @@ Run->Edit Configurations, paste -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea into 
 		
 		 </li>
 	</ul>
-
+<h2>Misleading calls
+</h2>
+<ul>
+	<li> <p>This is actually  a serious bug that would affect synthetic research experiments: </p>
+		<p>val gr = GraphGenerators.logNormalGraph(sparkContext,numVertices,numPartitions,meanOutDegree,deviationOutDegree)</p>
+		<p>When numVertices=10, meanOutDegree=2 you would expect less than 20 edges, but there are less than 30 edges. So, for any graph with n number of vertices and m mean degrees, there will be at most (m+1)*n edges.</p></li>
+</ul>
 </body>
 </html>
